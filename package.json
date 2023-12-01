@@ -1,0 +1,21 @@
+{
+  "name": "bungabotdiscord",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ClaireWhere",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@discordjs/builders": "^1.7.0",
+    "@discordjs/rest": "^2.2.0",
+    "discord-api-types": "^0.37.65",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "winston": "^3.11.0"
+  }
+}
