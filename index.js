@@ -2,7 +2,7 @@ const fs = require('fs');
 const { Client, Collection, Events, GatewayIntentBits, ActivityType, InteractionType } = require('discord.js');
 require('dotenv').config();
 const { config } = require('./config.json');
-const { logger } = require('../utils/logger');
+const { logger } = require('./utils/logger');
 
 logger.info(`Starting client...`);
 
