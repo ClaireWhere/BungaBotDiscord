@@ -117,6 +117,7 @@ module.exports = {
         }
 
         const pronouns = { embeds: [embed], components: [row_1, row_2, row_3, row_4] }
+        logger.debug(`created pronouns message`);
         return pronouns;
     }
 }

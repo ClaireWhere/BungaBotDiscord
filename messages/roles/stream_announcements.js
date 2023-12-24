@@ -28,6 +28,7 @@ module.exports = {
 
 
         const stream_announcements = { embeds: [embed], components: [row_1] }
+        logger.debug('created stream_announcements message');
         return stream_announcements;
     }
 }

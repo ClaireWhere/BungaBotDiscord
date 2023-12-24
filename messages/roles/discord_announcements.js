@@ -28,6 +28,7 @@ module.exports = {
 
 
         const discord_announcements = { embeds: [embed], components: [row_1] }
+        logger.debug('created discord_announcements message');
         return discord_announcements;
     }
 }
