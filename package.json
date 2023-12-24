@@ -7,6 +7,11 @@
   "license": "GPL-3.0-or-later",
   "keywords": [],
   "scripts": {
+    "start": "node index.js",
+    "start:dev": "pm2 start index.js --watch --name \"BungaBot\"",
+    "initialize": "node deploy-commands.js",
+    "reset": "node delete-commands.js && node deploy-commands.js",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
