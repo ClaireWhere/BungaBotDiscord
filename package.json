@@ -12,10 +12,13 @@
   "dependencies": {
     "@discordjs/builders": "^1.7.0",
     "@discordjs/rest": "^2.2.0",
+    "canvas": "^2.11.2",
+    "cron": "^3.1.6",
     "discord-api-types": "^0.37.65",
     "discord.js": "^14.14.1",
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security",
+    "rss-parser": "^3.13.0",
     "winston": "^3.11.0"
   },
   "devDependencies": {
