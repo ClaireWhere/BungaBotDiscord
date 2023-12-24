@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "author": "ClaireWhere",
+  "license": "GPL-3.0-or-later",
+  "keywords": [],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "ClaireWhere",
-  "license": "GPL-3.0-or-later",
   "dependencies": {
     "@discordjs/builders": "^1.7.0",
     "@discordjs/rest": "^2.2.0",
