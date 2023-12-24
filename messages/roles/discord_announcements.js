@@ -9,7 +9,7 @@ module.exports = {
         const row_1 = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
-                    .setStyle(ButtonStyle.Danger)
+                    .setStyle(ButtonStyle.Primary)
                     .setLabel(`Discord Announcements`)
                     .setCustomId(`role:discord_announcements`)
                     .setDisabled(false)
