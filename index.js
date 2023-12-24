@@ -6,11 +6,27 @@ const { logger } = require('./utils/logger');
 
 logger.info(`Starting client...`);
 
-const presence = config.custom_status.enabled ? {activities: [{name: config.custom_status.name, type: ActivityType.Custom, state: config.custom_status.state}], state: config.custom_status.state} : {}
+// Set Presence
+function getPresence() {
+    if (config.hasOwnProperty('custom_status')) {
+        if (config.custom_status.hasOwnProperty('enabled') && config.custom_status.hasOwnProperty('state')) {
+            return config.custom_status.enabled ? {activities: [{name: config.custom_status.name ?? '', type: ActivityType.Custom, state: config.custom_status.state}], state: config.custom_status.state} : {}
+        }
+    }
+    return undefined;
+}
+const presence = getPresence();
+if (presence) {
+    logger.debug(`Custom status is enabled: ${presence.activities[0].state}`);
+} else {
+    logger.debug(`Custom status is disabled`);
+}
+
 const client = new Client({ 
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers],
-    presence: presence
+    presence: getPresence()
 });
+logger.info(`Client initialized`)
 
 
 // Initialize Events
