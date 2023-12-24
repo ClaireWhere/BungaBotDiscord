@@ -37,9 +37,11 @@ module.exports = {
             return false;
         }
 
+        const interaction_type = id.shift();
 
-        if (id[0] === 'color') {
-            return await colorHandler(interaction, id[1]);
+
+        if (interaction_type === 'color') {
+            return await colorHandler(interaction, id[0]);
         }
 
         var role_name = "";
