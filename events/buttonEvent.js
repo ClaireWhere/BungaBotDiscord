@@ -44,11 +44,28 @@ module.exports = {
             return await colorHandler(interaction, id[0]);
         }
 
-        var role_name = "";
-        if (id.length == 1) {
-            role_name = config.roles[id[0]].name;
-        } else {
-            role_name = config.roles[id[0]][id[1]].name;
+        
+        function getRoleName(id) {
+            if (id.length < 1) { 
+                logger.debug(`specified button id is not valid role type: ${id.toString()}`);
+                return undefined; 
+            }
+
+            if (id.length == 1) {
+                const role = config.roles[id[0]];
+                if (!role) { 
+                    logger.debug(`no role found for button: ${id.toString()}`);
+                    return undefined;
+                }
+                return role.hasOwnProperty('name') ? role.name : undefined;
+            } else {
+                const role = config.roles[id[0]][id[1]];
+                if (!role) { 
+                    logger.debug(`no role found for button: ${id.toString()}`);
+                    return undefined; 
+                }
+                return role.hasOwnProperty('name') ? role.name : undefined;
+            }
         }
 
         if (role_name === undefined || role_name.length === 0) { 
