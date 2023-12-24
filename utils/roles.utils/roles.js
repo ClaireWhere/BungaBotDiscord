@@ -33,7 +33,7 @@ async function removeExclusive(interaction, id) {
     }
 
     const exclusive = root_element[role_id].exclusion;
-    if (exclusive == undefined || exclusive.length == 0) {
+    if (exclusive === undefined || exclusive.length === 0) {
         return true;
     }
 
