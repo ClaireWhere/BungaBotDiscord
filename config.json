@@ -18,7 +18,14 @@
             "spam_channel_name": "spam-channel-c-h-a-o-s",
             "nsfw_channel_name": "n-s-f-w",
             "wall_of_shame_channel_name": "wall-of-shame",
-            "hall_of_fame_channel_name": "hall-of-fame"
+            "hall_of_fame_channel_name": "hall-of-fame",
+            "self_promo_channel_name": "self-promo",
+            "stream_announcements_channel_name": "stream-announcements",
+            "youtube_announcements_channel_name": "youtube-announcements",
+            "va_announcements_channel_name": "voice-acting-announcements"
+        },
+        "users": {
+            "aurora": "491670501727535104"
         },
         "roles": {
             "pronouns": {
