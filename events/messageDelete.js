@@ -11,6 +11,8 @@ module.exports = {
      * @returns 
      */
     async execute(message) {
+        if (!(config.hasOwnProperty('deleted_message_log'))) { return; }
+        if (!(config.deleted_message_log.hasOwnProperty('enabled'))) { return; }
         if (!config.deleted_message_log.enabled) { return; }
         logger.info(`received ${this.name.toString()} interaction from channel: ${message.channel} by ${message.author.username}`);
 
