@@ -31,12 +31,17 @@ logger.info(`Client initialized`)
 
 // Initialize Events
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+logger.info(`Found ${eventFiles.length} events`);
 
 for (const file of eventFiles) {
+    logger.debug(`registering event: ${file} (./events/${file})`);
     const event = require(`./events/${file}`);
+    logger.debug(`loaded event: ${event.name} from ${file}`);
     if (event.once) {
+        logger.debug(`registering once event: ${event.name} from ${file}`);
         client.once(event.name, (...args) => event.execute(...args));
     } else {
+        logger.debug(`registering event: ${event.name} from ${file}`);
         client.on(event.name, (...args) => event.execute(...args));
     }
     logger.info(`registered event: ${event.name} from ${file}`)
@@ -46,9 +51,12 @@ for (const file of eventFiles) {
 // Initialize Commands
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+logger.info(`Found ${commandFiles.length} commands`);
 
 for (const file of commandFiles) {
+    logger.debug(`initializing command: ${file} (./commands/${file})`);
     const command = require(`./commands/${file}`);
+    logger.debug(`loaded command: ${command.data.name} from ${file}`)
     try {
         client.commands.set(command.data.name, command);
         logger.info(`initialized command: ${command.data.name}`);
