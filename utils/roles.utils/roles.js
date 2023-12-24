@@ -37,7 +37,7 @@ async function removeExclusive(interaction, id) {
         return true;
     }
 
-    for (const element of exclusive) {
+    for (let element of exclusive) {
         try {
             if (await memberHasRoleName(interaction, root_element[element].name)) {
                 await removeFormatRole(interaction, root_element[element].name);
