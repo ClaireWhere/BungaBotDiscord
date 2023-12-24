@@ -1,5 +1,5 @@
 const { Client } = require("discord.js");
-const { logger } = require("../../utils/logger");
+const { logger } = require("../utils/logger");
 
 module.exports = {
     name: 'ready',

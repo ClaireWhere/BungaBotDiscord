@@ -15,14 +15,15 @@ const logger = createLogger({
     ),
     defaultMeta: { service: 'user-service' },
     transports: [
-        new transports.File({ filename: '../logs/error.log', level:'error' }),
-        new transports.File({ filename: '../logs/combined.log' })
+        new transports.File({ filename: './logs/error.log', level:'error' }),
+        new transports.File({ filename: './logs/combined.log' }),
+        new transports.File({ filename: './logs/debug.log', level:'debug' })
     ],
     exceptionHandlers: [
-        new transports.File({ filename: '../logs/exceptions.log' })
+        new transports.File({ filename: './logs/exceptions.log' })
     ],
     rejectionHandlers: [
-        new transports.File({ filename: '../logs/rejections.log' })
+        new transports.File({ filename: './logs/rejections.log' })
     ],
     exitOnError: false
 });

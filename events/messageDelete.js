@@ -1,7 +1,7 @@
 const { config } = require('../config.json');
 const { messageToBuffer } = require('../utils/messageToImage');
 const { AttachmentBuilder, Events } = require('discord.js');
-const { logger } = require('../../utils/logger');
+const { logger } = require('../utils/logger');
 
 module.exports = {
     name: Events.MessageDelete,
