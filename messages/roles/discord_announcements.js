@@ -4,7 +4,7 @@ const { logger } = require("../../utils/logger");
 
 module.exports = { 
     async execute(interaction) {
-        const discord_announcements_role = interaction.guild.roles.cache.find(role => role.name === config.roles.announcements.name ?? '\`@Discord Announcements\`');
+        const discord_announcements_role = interaction.guild.roles.cache.find(role => role.name === config.roles.discord_announcements.name) ?? '\`@Discord Announcements\`';
 
         const row_1 = new ActionRowBuilder()
             .addComponents(
