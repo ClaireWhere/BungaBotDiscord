@@ -74,7 +74,7 @@ async function set(interaction) {
         .then((res) => {
             return true;
         }).catch((error) => {
-            logger.info(`could not respond to ${interaction.commandName} interaction (${error})`);
+            logger.warn(`could not respond to ${interaction.commandName} interaction (${error})`);
             return false;
         })
 }
@@ -82,7 +82,7 @@ async function set(interaction) {
 async function remove(interaction) {
     const role = await interaction.member.roles.cache.find(role => role.name.endsWith(`'s Color`));
     if (role === undefined) {
-        logger.info(`${interaction.member.user.username} has no color to remove`);
+        logger.debug(`${interaction.member.user.username} has no color to remove`);
         return await interaction.editReply({embeds: [{title: 'You have no color to remove!', description: `use \`/color set\` to set your color!`, color: parseInt(config.colors.red.darken[2].hex)}]})
             .then((res) => {
                 return true;
