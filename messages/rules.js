@@ -32,23 +32,43 @@ module.exports = {
             .addFields(
                 {
                     "name": `\u200B`,
-                    "value": `1️⃣ Don't be racist/homophobic/transphobic/bigoted or you will be banned. Any type of hate speech is not tolerated. Do not post anyone's personal information such as location without their permission.`
+                    "value": `1️⃣ Don't be racist/homophobic/transphobic/bigoted or you will be banned. Any type of hate speech is not tolerated. Do not post anyone's personal information such as location without their explicit permission. If someone says they're feeling uncomfortable, stop.`
                 },
                 {
                     "name": `\u200B`,
-                    "value": `2️⃣ Use channels as intended (i.e. talking about art should be in ${art})`
+                    "value": `2️⃣ Use channels as intended (e.g. talking about art should be in ${art})`
+                },
+                {
+                    "name": `\u200B`,
+                    "value": `>>> All advertisement must be done in ${self_promo}. DO NOT DM members of the community to advertise your content.`,
+                    "inline": true
                 },
                 {
                     "name": "\u200B",
-                    "value": `3️⃣ Keep excessive texting/spam to <#${spam}>`
+                    "value": `>>> Don't talk politics here. Just don't.`,
+                    "inline": true
                 },
                 {
                     "name": "\u200B",
-                    "value": `4️⃣ Keep NSFW topics or memes to <#${nsfw}>`
+                    "value": `3️⃣ Keep excessive texting/spam to ${spam} (or take it to DMs)`
                 },
                 {
                     "name": "\u200B",
-                    "value": `>>> Please do not flirt or be blatantly nsfw in channels that aren't <#${nsfw}>`,
+                    "value": `>>> Do not spam ping members of the server.`,
+                    "inline": true
+                },
+                {
+                    "name": "\u200B",
+                    "value": `>>> Do not be excessively disruptive in voice channels.`,
+                    "inline": true
+                },
+                {
+                    "name": "\u200B",
+                    "value": `4️⃣ Keep NSFW topics or memes to ${nsfw}. If you are unsure if something is NSFW, it probably is.`
+                },
+                {
+                    "name": "\u200B",
+                    "value": `>>> Please do not flirt or be blatantly nsfw in channels that aren't ${nsfw}`,
                     "inline": true
                 },
                 {
@@ -62,12 +82,12 @@ module.exports = {
                 },
                 {
                     "name": "\u200B",
-                    "value": `6️⃣ All rule-breakers shall have screenshot posted <#${wall_of_shame}>`,
+                    "value": `6️⃣ All L-takers shall have screenshot posted ${wall_of_shame}`,
                     "inline": true
                 },
                 {
                     "name": "\u200B",
-                    "value": `7️⃣ All EPIC GAMERS shall have screenshots posted in <#${hall_of_fame}>`,
+                    "value": `7️⃣ All EPIC GAMERS shall have screenshots posted in ${hall_of_fame}`,
                     "inline": true
                 },
                 
@@ -81,7 +101,7 @@ module.exports = {
                 },
                 {
                     "name": "\u200B",
-                    "value": `🔟 Rules are subject to change as <@${aurora}> and the Mod Team see fit.\n\n\nFrog Abuse Will Not Be Tolerated.`
+                    "value": `🔟 Rules are subject to change as ${aurora} and the Mod Team see fit.`
                 }
                 
             )
