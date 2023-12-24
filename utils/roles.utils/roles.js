@@ -32,6 +32,15 @@ async function removeExclusive(interaction, id) {
         root_element = config.roles[id[0]];
     }
 
+    if (!root_element) {
+        return true;
+    }
+    if (!root_element.hasOwnProperty(role_id)) {
+        return true;
+    }
+    if (!root_element[role_id].hasOwnProperty('exclusion')) {
+        return true;
+    }
     const exclusive = root_element[role_id].exclusion;
     if (exclusive === undefined || exclusive.length === 0) {
         return true;
