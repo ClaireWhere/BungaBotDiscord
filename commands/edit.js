@@ -4,7 +4,7 @@ const rules = require('../messages/rules.js');
 const discord_announcements = require('../messages/roles/discord_announcements.js');
 const stream_announcements = require('../messages/roles/stream_announcements.js')
 const pronouns = require('../messages/roles/pronouns.js')
-const { logger } = require('../../utils/logger.js');
+const { logger } = require('../utils/logger.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
