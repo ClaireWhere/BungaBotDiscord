@@ -9,7 +9,7 @@ module.exports = {
         const row_1 = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
-                    .setStyle(ButtonStyle.Danger)
+                    .setStyle(ButtonStyle.Success)
                     .setLabel(`AAAAurora's_ Stream Announcements`)
                     .setCustomId(`role:aaaaurora_stream_announcements`)
                     .setDisabled(false)
