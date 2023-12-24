@@ -11,7 +11,7 @@ module.exports = {
                 new ButtonBuilder()
                     .setStyle(ButtonStyle.Danger)
                     .setLabel(`Discord Announcements`)
-                    .setCustomId(`discord-announcements`)
+                    .setCustomId(`role:discord_announcements`)
                     .setDisabled(false)
             );
 

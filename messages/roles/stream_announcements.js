@@ -11,7 +11,7 @@ module.exports = {
                 new ButtonBuilder()
                     .setStyle(ButtonStyle.Danger)
                     .setLabel(`AAAAurora's_ Stream Announcements`)
-                    .setCustomId(`stream:aaaaurora_`)
+                    .setCustomId(`role:aaaaurora_stream_announcements`)
                     .setDisabled(false)
             );
 
