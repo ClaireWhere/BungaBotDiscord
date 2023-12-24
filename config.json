@@ -47,7 +47,7 @@
                 "any": {"id": "pronouns:any", "name": "Any Pronouns!", "color": "0", "exclusion": ["she_her", "she_they", "she_he", "she_he_they", "she_they_he", "he_him", "he_they", "he_she", "he_she_they", "he_they_she", "they_them", "they_she", "they_he", "they_she_he", "they_he_she"]},
                 "neo": {"id": "pronouns:neo", "name": "Neopronouns!", "color": "0", "exclusion": []}
             },
-            "aaaaurora_stream_announcements": {"id": "aaaaurora_stream_announcements", "name": "AAAAurora's Stream Announcements", "color": "0xEF3E4D"},
+            "aaaaurora_stream_announcements": {"id": "aaaaurora_stream_announcements", "name": "AAAAurora_ Live", "color": "0xEF3E4D"},
             "discord_announcements": {"id": "discord_announcements", "name": "Discord Announcements", "color": "0xFAA820"}
         },
         "colors": {
