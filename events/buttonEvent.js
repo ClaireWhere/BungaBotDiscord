@@ -68,14 +68,25 @@ module.exports = {
             }
         }
 
-        if (role_name === undefined || role_name.length === 0) { 
-            logger.warn(`no role found for button: ${id.toString()}!`);
-            await interaction.followUp({ephemeral: true, content: `Something went wrong finding the role you selected D:`})
-                .catch((error) => {logger.error(`could not follow up on add role from ${interaction.member.user.username} for ${interaction.customId} (${error})`)});
-            return false;
+        if (interaction_type === 'role') {
+            const role_name = getRoleName(id);
+            if (role_name === undefined || role_name.length === 0) { 
+                logger.warn(`no role found for ${id.toString()}!`);
+                await interaction.followUp({ephemeral: true, content: `Something went wrong finding the role you selected D:`})
+                    .catch((error) => {logger.error(`could not follow up on add role from ${interaction.member.user.username} for ${interaction.customId} (${error})`)}); 
+                return false;
+            }
+
+            logger.debug(`found role ${role_name} for button: ${id.toString()}`);
+
+            await toggleRole(interaction, role_name, id);
+            logger.info(`toggled role ${role_name} for button: ${id.toString()}`);
+            return true;
         }
         
-        await toggleRole(interaction, role_name, id);
-        return true;
+        logger.warn(`no handler found for button: ${interaction_type}:${id.toString()}!`);
+        await interaction.followUp({ephemeral: true, content: `Something went wrong finding the button you clicked D:`})
+            .catch((error) => {logger.error(`could not follow up on button click from ${interaction.member.user.username} for ${interaction.customId} (${error})`)});
+        return false;
     },
 };
