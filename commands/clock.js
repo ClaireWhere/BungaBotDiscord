@@ -102,9 +102,9 @@ async function handleClockView(interaction) {
 
     let message = '';
     if (clockTime.sessionTime > 0) {
-        message += `🟢 Currently clocked in for ${strSessionTime}\n`;
+        message += `🟢 Currently clocked in for ${strSessionTime}\n\n`;
     } else {
-        message += `🔴 Currently clocked out\n`;
+        message += `🔴 Currently clocked out\n\n`;
     }
     message += `\tTotal time on the clock: ${strTotalTime}`;
 
