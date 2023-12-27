@@ -12,14 +12,29 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand.setName('in')
             .setDescription('clock in for work 😔')
+            .addBooleanOption(option =>
+                option.setName('silent')
+                .setDescription('sends the clock message silently')
+                .setRequired(false)
+            )
         )
         .addSubcommand(subcommand =>
             subcommand.setName('out')
             .setDescription('clock out of work and get back to your miserable life')
+            .addBooleanOption(option =>
+                option.setName('silent')
+                .setDescription('sends the clock message silently')
+                .setRequired(false)
+            )
         )
         .addSubcommand(subcommand =>
             subcommand.setName('view')
             .setDescription('check your time on the clock')
+            .addBooleanOption(option =>
+                option.setName('silent')
+                .setDescription('sends the clock message silently')
+                .setRequired(false)
+            )
         ),
         async execute(interaction) {
             if (interaction.commandName != 'clock') { return; }
