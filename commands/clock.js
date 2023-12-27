@@ -47,12 +47,12 @@ async function handleClockIn(interaction) {
     const clockedIn = clockIn(interaction.user.id);
     const displayName = interaction.member.displayName ?? interaction.user.displayName;
     
-    let message;
+    let message = '';
 
     if (!clockedIn) {
-        message = `❌ ${interaction.user} you're already clocked in dummy!!`;
+        message += `❌ ${interaction.user} you're already clocked in dummy!!`;
     } else {
-        message = `🟢 ${interaction.user} has clocked in. Have fun at work.`;
+        message += `🟢 ${interaction.user} has clocked in. Have fun at work.`;
     }
 
     const embed = new EmbedBuilder()
@@ -73,11 +73,11 @@ async function handleClockOut(interaction) {
     const strSessionTime = dateToString(clockedOut.sessionTime);
     const displayName = interaction.member.displayName ?? interaction.user.displayName;
 
-    let message;
+    let message = '';
     if (clockedOut.sessionTime === -1) {
-        message = `❌ ${interaction.user} you haven't clocked in yet idiot.`;
+        message += `❌ ${interaction.user} you haven't clocked in yet idiot.`;
     } else {
-        message = `🔴 ${interaction.user} has clocked out after ${strSessionTime}. Get back to living your sad live`;
+        message += `🔴 ${interaction.user} has clocked out after ${strSessionTime}. Get back to living your sad live`;
     }
 
     const embed = new EmbedBuilder()
@@ -100,7 +100,7 @@ async function handleClockView(interaction) {
 
     const displayName = interaction.member.displayName ?? interaction.user.displayName;
 
-    let message;
+    let message = '';
     if (clockTime.sessionTime > 0) {
         message += `🟢 Currently clocked in for ${strSessionTime}\n`;
     } else {
