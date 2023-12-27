@@ -75,7 +75,12 @@ client.on(Events.InteractionCreate, async interaction => {
 
     if (!command) return;
 
-    if (!await interaction.deferReply({ ephemeral: true })
+    // indicates command names that are not ephemeral by default;
+    const persistentCommands = ['clock'];
+    const isEphemeral = !persistentCommands.includes(interaction.commandName);
+    const isSilent = interaction.options.get('silent') ? interaction.options.get('silent').value : isEphemeral;
+
+    if (!await interaction.deferReply({ ephemeral: isSilent })
             .then((res) => {
                 logger.info(`/${interaction.commandName} command deferred`);
                 return true;
