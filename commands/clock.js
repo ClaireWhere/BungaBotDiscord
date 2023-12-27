@@ -114,7 +114,7 @@ async function handleClockView(interaction) {
     console.log(parseInt(config.colors.rainbow.at(Math.floor(Math.random()*config.colors.rainbow.length)).hex))
 
     const embed = new EmbedBuilder()
-        .setTitle(`${displayName}'s Clock Time`)
+        .setTitle(`${displayName}'s Clock`)
         .setDescription(message)
         .setColor(parseInt(config.colors.rainbow.at(Math.floor(Math.random()*config.colors.rainbow.length)).hex))
         .setTimestamp();
