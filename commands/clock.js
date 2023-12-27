@@ -61,7 +61,7 @@ module.exports = {
 async function handleClockIn(interaction) {
     const clockedIn = clockIn(interaction.user.id);
     const displayName = interaction.member.displayName ?? interaction.user.displayName;
-    
+
     let message = '';
 
     if (!clockedIn) {
@@ -112,7 +112,6 @@ async function handleClockView(interaction) {
     const clockTime = clockView(interaction.user.id);
     const strSessionTime = dateToString(clockTime.sessionTime);
     const strTotalTime = dateToString(clockTime.totalTime);
-
     const displayName = interaction.member.displayName ?? interaction.user.displayName;
 
     let message = '';
