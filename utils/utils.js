@@ -136,4 +136,53 @@ function pad(num, size) {
     return num;
 }
 
-module.exports = { arrayMatch, isEmpty, formatList, removeIntersection, arrayToLowerCase, toNum, isNumeric, getChannelParentName, getDate }
+/**
+ * 
+ * @param {int} date 
+ * @returns {{days: int,hours: int,minutes: int,seconds: int,ms: int}}
+ */
+function dateToObject(date) {
+    const msSecond = 1000;
+    const msMinute = msSecond * 60;
+    const msHour = msMinute * 60;
+    const msDay = msHour * 24;
+
+    const days = Math.floor(date / msDay);
+    date %= msDay;
+    const hours = Math.floor(date / msHour);
+    date %= msHour;
+    const minutes = Math.floor(date / msMinute);
+    date %= msMinute;
+    const seconds = Math.floor(date / msSecond);
+    date %= msSecond;
+    const ms = date;
+    return {
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
+        ms: ms
+    }
+}
+
+
+function dateToString(date) {
+    const objDate = dateToObject(date);
+    console.log(objDate);
+    if (objDate.days === 0 && objDate.hours === 0 && objDate.minutes === 0 && objDate.seconds === 0) {
+        return `${objDate.ms} Milliseconds`
+    }
+    let message = objDate.days > 1 ? `${objDate.days} Days, ` : '';
+    message += objDate.days === 1 ? `${objDate.days} Day, ` : '';
+    message += objDate.hours > 1 ? `${objDate.hours} Hours, ` : '';
+    message += objDate.hours === 1 ? `${objDate.hours} Hour, ` : '';
+    message += objDate.minutes > 1 ? `${objDate.minutes} Minutes, ` : '';
+    message += objDate.minutes === 1 ? `${objDate.minutes} Minute, ` : '';
+    message += objDate.seconds > 1 ? `${objDate.seconds} Seconds, ` : '';
+    message += objDate.seconds === 1 ? `${objDate.seconds} Second, ` : '';
+
+    console.log(message);
+    return message.slice(0, -2);
+}
+
+module.exports = { arrayMatch, isEmpty, formatList, removeIntersection, arrayToLowerCase, toNum, isNumeric, getChannelParentName, getDate, dateToString }
