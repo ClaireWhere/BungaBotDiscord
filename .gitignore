@@ -1,5 +1,4 @@
 .env
-store
 logs
 node_modules
 .gitattributes/logs/
