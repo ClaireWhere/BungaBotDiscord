@@ -106,12 +106,7 @@ async function handleClockView(interaction) {
     } else {
         message += `🔴 Currently clocked out\n\n`;
     }
-    message += `\tTotal time on the clock: ${strTotalTime}`;
-
-    console.log(message);
-    console.log(config.colors.rainbow.at(Math.floor(Math.random()*config.colors.rainbow.length)))
-    
-    console.log(parseInt(config.colors.rainbow.at(Math.floor(Math.random()*config.colors.rainbow.length)).hex))
+    message += `Total time on the clock: ${strTotalTime}`;
 
     const embed = new EmbedBuilder()
         .setTitle(`${displayName}'s Clock`)
