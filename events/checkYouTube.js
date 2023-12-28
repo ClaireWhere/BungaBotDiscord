@@ -117,30 +117,31 @@ async function checkYouTube() {
         const description = `New video from ${channel_name}!\nCome check it out!!`;
         const video_id = latest_video.id.split(':');
         const thumbnail = `http://img.youtube.com/vi/${video_id.pop()}/0.jpg`;
+        const footer = { text: `Published `, iconURL: channel_icon };
+        const timestamp = new Date(latest_video.pubDate);
         const color = parseInt(0xd6b2e0);
+        const author = { name: channel_name, iconURL: channel_icon };
         
         logger.debug(`CREATING YOUTUBE ANNOUNCEMENT`);
         logger.debug(`\tchannel_icon: ${channel_icon}`);
         logger.debug(`\tthumbnail: ${thumbnail}`);
-        logger.debug(`\tfooter: Published ${latest_video.pubDate}`);
         logger.debug(`\tcolor: ${color}`);
-        logger.debug(`\tauthor: ${channel_name} (${channel_icon})`);
         logger.debug(`\ttitle: ${title}`);
         logger.debug(`\tdescription: ${description}`);
         logger.debug(`\turl: ${latest_video.link}`);
+        logger.debug(`\tfooter: ${footer}`);
+        logger.debug(`\ttimestamp: ${timestamp}`);
+        logger.debug(`\tauthor: ${author}`);
 
         const embed = new EmbedBuilder()
             .setTitle(title)
             .setDescription(description)
             .setImage(thumbnail)
             .setURL(latest_video.link)
-            .setFooter({
-                text: `Published `,
-                iconURL: channel_icon
-            })
-            .setTimestamp(new Date(latest_video.pubDate))
+            .setFooter(footer)
+            .setTimestamp(timestamp)
             .setColor(color)
-            .setAuthor({ name: channel_name, iconURL: channel_icon });
+            .setAuthor(author);
         const message = { embeds: [embed]};
         return message;
     }
