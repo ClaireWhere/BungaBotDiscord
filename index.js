@@ -97,10 +97,10 @@ client.on(Events.InteractionCreate, async interaction => {
             logger.info(`${interaction.commandName} command execution completed with status ${res}`)
         }).catch(async (error) => {
             await interaction.followUp({content: 'There was an error D:', ephemeral: true})
-                .then((res) => {
-                    logger.warn(`${interaction.commandName} command executed with error. Application successfully sent error message`)
+                .then(() => {
+                    logger.warn(`${interaction.commandName} command executed with error (${error}).\n\tApplication successfully sent error message`)
                 }).catch((err) => {
-                    logger.error(`${interaction.commandName} command was unable to be executed. Application did not respond in time: ${error}`);
+                    logger.error(`${interaction.commandName} command was unable to be executed. Application did not respond in time:\n\t${error}\n\t${err}`);
                     return false;
                 });
         });
