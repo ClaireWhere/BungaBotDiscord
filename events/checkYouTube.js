@@ -173,7 +173,12 @@ async function checkYouTube() {
      * @returns {{any: {videos: string[];};}[]}
      */
     function getJSONData(yt_channel_id) {
-        const yt_json_data = JSON.parse(fs.readFileSync(`${__dirname}/../data/youtube.json`));
+        let yt_json_data;
+        try {
+            yt_json_data = JSON.parse(fs.readFileSync(`${__dirname}/../data/youtube.json`));
+        } catch (error) {
+            logger.error(`error while reading youtube data from file (${error})`);
+        }
         logger.debug(`youtube data: ${JSON.stringify(yt_json_data)}`);
         
         if (!yt_json_data) {

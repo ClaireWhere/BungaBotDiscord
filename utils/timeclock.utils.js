@@ -91,7 +91,12 @@ function addWorker(clockData, id) {
  * @returns {JSON}
  */
 function getClock() {
-    let clock = JSON.parse(fs.readFileSync(`${__dirname}/../data/timeclock.json`));
+    let clock;
+    try {
+        clock = JSON.parse(fs.readFileSync(`${__dirname}/../data/timeclock.json`));
+    } catch (error) {
+        logger.error(`error while reading time clock data (${error})`);
+    }
 
     if (!clock) {
         logger.debug('time clock data not found... creating it');
