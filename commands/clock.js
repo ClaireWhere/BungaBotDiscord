@@ -71,9 +71,13 @@ async function handleClockIn(interaction) {
     }
 
     const embed = new EmbedBuilder()
-        .setTitle(`${displayName}'s Clock`)
+        .setTitle(` `)
         .setDescription(message)
         .setColor(parseInt(config.colors.rainbow.at(Math.floor(Math.random()*config.colors.rainbow.length)).hex))
+        .setAuthor({
+            name: `${displayName}'s Clock`,
+            iconURL: interaction.user.avatarURL()
+        })
         .setTimestamp();
     await interaction.followUp({embeds: [embed]});
 }
@@ -96,9 +100,13 @@ async function handleClockOut(interaction) {
     }
 
     const embed = new EmbedBuilder()
-        .setTitle(`${displayName}'s Clock`)
+        .setTitle(` `)
         .setDescription(message)
         .setColor(parseInt(config.colors.rainbow.at(Math.floor(Math.random()*config.colors.rainbow.length)).hex))
+        .setAuthor({
+            name: `${displayName}'s Clock`,
+            iconURL: interaction.user.avatarURL()
+        })
         .setTimestamp();
     await interaction.followUp({embeds: [embed]});
 }
@@ -123,9 +131,13 @@ async function handleClockView(interaction) {
     message += `Total time on the clock: ${strTotalTime}`;
 
     const embed = new EmbedBuilder()
-        .setTitle(`${displayName}'s Clock`)
+        .setTitle(` `)
         .setDescription(message)
         .setColor(parseInt(config.colors.rainbow.at(Math.floor(Math.random()*config.colors.rainbow.length)).hex))
+        .setAuthor({
+            name: `${displayName}'s Clock`,
+            iconURL: interaction.user.avatarURL()
+        })
         .setTimestamp();
     await interaction.followUp({embeds: [embed]});
 }
