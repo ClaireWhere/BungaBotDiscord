@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { logger } = require('./logger');
 
-module.exports = { clockIn, clockOut, clockView }
+module.exports = { clockIn, clockOut, clockView, getClock };
 
 function clockIn(id) {
     let clockData = getClock();
