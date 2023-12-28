@@ -122,13 +122,13 @@ async function handleClockView(interaction) {
     const strTotalTime = dateToString(clockTime.totalTime);
     const displayName = interaction.member.displayName ?? interaction.user.displayName;
 
-    let message = '';
+    let message = `⏱️ Total time on the clock: ${strTotalTime}\n`;
     if (clockTime.sessionTime > 0) {
-        message += `🟢 Currently clocked in for ${strSessionTime}\n\n`;
+        message += `🟢 Currently clocked in for: ${strSessionTime}`;
     } else {
-        message += `🔴 Currently clocked out\n\n`;
+        message += `🔴 Currently clocked out`;
     }
-    message += `Total time on the clock: ${strTotalTime}`;
+    
 
     const embed = new EmbedBuilder()
         .setTitle(` `)
