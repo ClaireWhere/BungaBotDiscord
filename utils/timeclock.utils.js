@@ -88,7 +88,7 @@ function addWorker(clockData, id) {
 
 /**
  * 
- * @returns {JSON}
+ * @returns {{workers: [{ id: int, time: int, clocked_in: int|string }]}}
  */
 function getClock() {
     let clock;
