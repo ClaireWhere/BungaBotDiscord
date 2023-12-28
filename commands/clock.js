@@ -1,7 +1,7 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('@discordjs/builders');
 const { config } = require('../config.json');
 const { dateToString } = require('../utils/utils');
-const { clockView, clockIn, clockOut } = require('../utils/timeclock.utils');
+const { clockView, clockIn, clockOut, getClock } = require('../utils/timeclock.utils');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -35,6 +35,15 @@ module.exports = {
                 .setDescription('sends the clock message silently')
                 .setRequired(false)
             )
+        )
+        .addSubcommand(subcommand =>
+            subcommand.setName('display')
+            .setDescription('display everyone\'s time on the clock')
+            .addBooleanOption(option =>
+                option.setName('silent')
+                .setDescription('sends the clock message silently')
+                .setRequired(false)
+            )
         ),
         async execute(interaction) {
             if (interaction.commandName != 'clock') { return; }
@@ -47,6 +56,9 @@ module.exports = {
             }
             if (interaction.options.getSubcommand() === 'view') {
                 return await handleClockView(interaction);
+            }
+            if (interaction.options.getSubcommand() === 'display') {
+                return await handleClockDisplay(interaction);
             }
 
             return;
@@ -137,6 +149,39 @@ async function handleClockView(interaction) {
         .setAuthor({
             name: `${displayName}'s Clock`,
             iconURL: interaction.user.avatarURL()
+        })
+        .setTimestamp();
+    await interaction.followUp({embeds: [embed]});
+}
+
+/**
+ * 
+ * @param {import('discord.js').CommandInteraction} interaction 
+ * @returns 
+ */
+async function handleClockDisplay(interaction) {
+    const clockData = getClock();
+
+    // Order all workers descending by time on the clock
+    clockData.workers.sort((a, b) => {
+        return (b.time + (b.clocked_in === -1 ? 0 : new Date() - new Date(b.clocked_in))) - (a.time + (a.clocked_in === -1 ? 0 : new Date() - new Date(a.clocked_in)));
+    });
+
+    let message = '';
+    for (const worker of clockData.workers) {
+        const sessionTime = worker.clocked_in === -1 ? 0 : new Date() - new Date(worker.clocked_in);
+        const strTotalTime = dateToString(worker.time + sessionTime);
+        const clockedIn = sessionTime === 0 ? '🔴 Not currently clocked in' : `🟢 Currently clocked in for: ${dateToString(sessionTime)}`;
+        message += `### <@${worker.id}>:\n  ⏱️ Total time: ${strTotalTime}\n  ${clockedIn}\n\n`;
+    }
+
+    const embed = new EmbedBuilder()
+        .setTitle(' ')
+        .setDescription(message)
+        .setColor(parseInt(config.colors.rainbow.at(Math.floor(Math.random()*config.colors.rainbow.length)).hex))
+        .setAuthor({
+            name: `${interaction.guild.name} Clock`,
+            iconURL: interaction.guild.iconURL()
         })
         .setTimestamp();
     await interaction.followUp({embeds: [embed]});
