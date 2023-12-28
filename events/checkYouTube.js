@@ -10,7 +10,7 @@ let scheduledCheck;
 let client;
 
 async function checkYouTube() {
-    if (!(client instanceof Object)) {
+    if (client === undefined) {
         logger.error(`Stopping run of checkYouTube\n\tclient was not initialized: ${Object.prototype.toString.call(client)}`)
         return;
     }
