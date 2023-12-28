@@ -113,21 +113,25 @@ async function checkYouTube() {
      * @returns 
      */
     function getYouTubeAnnouncement(latest_video, channel_name, channel_icon) {
-        logger.debug(`CREATING YOUTUBE ANNOUNCEMENT`);
-        logger.debug(`\tchannel_icon: ${channel_icon}`);
+        const title = `**${latest_video.title}**`;
+        const description = `New video from ${channel_name}!\nCome check it out!!`;
         const video_id = latest_video.id.split(':');
         const thumbnail = `http://img.youtube.com/vi/${video_id.pop()}/0.jpg`;
+        const color = parseInt(0xd6b2e0);
+        
+        logger.debug(`CREATING YOUTUBE ANNOUNCEMENT`);
+        logger.debug(`\tchannel_icon: ${channel_icon}`);
         logger.debug(`\tthumbnail: ${thumbnail}`);
-        logger.debug(`\tfooter: Published on ${latest_video.pubDate}`);
-        logger.debug(`\tcolor: ${parseInt(0xd6b2e0)}`);
+        logger.debug(`\tfooter: Published ${latest_video.pubDate}`);
+        logger.debug(`\tcolor: ${color}`);
         logger.debug(`\tauthor: ${channel_name} (${channel_icon})`);
-        logger.debug(`\ttitle: ${latest_video.title}`);
-        logger.debug(`\tdescription: New video from ${channel_name}!`);
+        logger.debug(`\ttitle: ${title}`);
+        logger.debug(`\tdescription: ${description}`);
         logger.debug(`\turl: ${latest_video.link}`);
 
         const embed = new EmbedBuilder()
-            .setTitle(`**${latest_video.title}**`)
-            .setDescription(`New video from ${channel_name}!\nCome check it out!!`)
+            .setTitle(title)
+            .setDescription(description)
             .setImage(thumbnail)
             .setURL(latest_video.link)
             .setFooter({
@@ -135,7 +139,7 @@ async function checkYouTube() {
                 iconURL: channel_icon
             })
             .setTimestamp(new Date(latest_video.pubDate))
-            .setColor(parseInt(0xd6b2e0))
+            .setColor(color)
             .setAuthor({ name: channel_name, iconURL: channel_icon });
         const message = { embeds: [embed]};
         return message;
