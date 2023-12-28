@@ -108,5 +108,5 @@ function getClock() {
 function saveClock(clockData) {
     if (!clockData) { return; }
 
-    fs.writeFileSync(`${__dirname}/../data/timeclock.json`, JSON.stringify(clockData));
+    fs.writeFileSync(`${__dirname}/../data/timeclock.json`, JSON.stringify(clockData, null, "\t"));
 }

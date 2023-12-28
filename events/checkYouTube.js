@@ -190,7 +190,7 @@ async function checkYouTube() {
         if (!yt_json_data.hasOwnProperty(yt_channel_id)) {
             logger.debug(`youtube channel ${yt_channel_id} not found in youtube data, adding it`);
             yt_json_data[yt_channel_id] = {"videos": []};
-            logger.debug(`\n\t${JSON.stringify(yt_json_data[yt_channel_id])}`);
+            logger.debug(`\n\t${JSON.stringify(yt_json_data[yt_channel_id], null, "\t")}`);
         }
         return yt_json_data;
     }
