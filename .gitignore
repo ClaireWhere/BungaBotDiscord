@@ -1,5 +1,6 @@
 .env
-/logs
-/node_modules
 .gitattributes
-/data/
+
+logs/
+node_modules/
+data/
