@@ -173,7 +173,12 @@ async function checkYouTube() {
      * @returns {{any: {videos: string[];};}[]}
      */
     function getJSONData(yt_channel_id) {
-        const yt_json_data = JSON.parse(fs.readFileSync(`${__dirname}/../data/youtube.json`));
+        let yt_json_data;
+        try {
+            yt_json_data = JSON.parse(fs.readFileSync(`${__dirname}/../data/youtube.json`));
+        } catch (error) {
+            logger.error(`error while reading youtube data from file (${error})`);
+        }
         logger.debug(`youtube data: ${JSON.stringify(yt_json_data)}`);
         
         if (!yt_json_data) {
@@ -185,7 +190,7 @@ async function checkYouTube() {
         if (!yt_json_data.hasOwnProperty(yt_channel_id)) {
             logger.debug(`youtube channel ${yt_channel_id} not found in youtube data, adding it`);
             yt_json_data[yt_channel_id] = {"videos": []};
-            logger.debug(`\n\t${JSON.stringify(yt_json_data[yt_channel_id])}`);
+            logger.debug(`\n\t${JSON.stringify(yt_json_data[yt_channel_id], null, "\t")}`);
         }
         return yt_json_data;
     }

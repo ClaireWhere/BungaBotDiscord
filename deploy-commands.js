@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const {REST} = require('@discordjs/rest');
 const {Routes} = require('discord-api-types/v9');
+const { logger } = require('./utils/logger');
 require('dotenv').config();
 
 const commands = [];
@@ -8,8 +9,16 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for(const file of commandFiles) {
     const command = require(`./commands/${file}`);
-    commands.push(command.data.toJSON());
-    console.log(`./commands/${file}`);
+    let message;
+    try {
+        commands.push(command.data.toJSON());
+        message = `loaded command from file ./commands/${file}`;
+        
+    } catch (error) {
+        message = `could not load command from file: ./commands/${file} - ${error}`;
+    }
+    logger.debug(message);
+    console.log(message);
 }
 
 const rest = new REST({version: '9'}).setToken(process.env.DISCORD_TOKEN);
