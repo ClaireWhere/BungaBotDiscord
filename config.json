@@ -6,6 +6,22 @@
             "name": "Set your name color with /color",
             "status": "online"
         },
+        "youtube": {
+            "enabled": true,
+            "interval_mins": 30,
+            "channels": [
+                {
+                    "yt_channel_id": "UCA1UZeWUbFnnzWewYQ3WAJw",
+                    "discord_channel_id": "youtube_announcements_channel_name",
+                    "channel_icon": "https://yt3.googleusercontent.com/bz9LK8fLi-5ZE6cW4ZGt13KtI-UXnOttwUOnX7hyTBysPZ1Lh2SoYvnL5xsKtxyrhlvHwoTXPg=s176-c-k-c0x00ffffff-no-rj"
+                },
+                {
+                    "yt_channel_id": "UCQ5m4GRVbNuqONlXEbHVy3w",
+                    "discord_channel_id": "va_announcements_channel_name",
+                    "channel_icon": "https://yt3.googleusercontent.com/suzmLgfjggrmUZLEXSsZhEisMO_AUikrNwjkZHKyRJqJ86a3vwJEEg9oM8syzAgqF2vMCXMM=s176-c-k-c0x00ffffff-no-rj"
+                }
+            ]
+        },
         "images": {
             "discord_announcements_thmb": "https://i.imgur.com/kJLa7ON.png",
             "stream_announcements_thmb": "https://i.imgur.com/YRknk1K.png",
