@@ -123,14 +123,13 @@ async function checkYouTube() {
         const author = { name: channel_name, iconURL: channel_icon };
         
         logger.debug(`CREATING YOUTUBE ANNOUNCEMENT`);
-        logger.debug(`\tchannel_icon: ${channel_icon}`);
-        logger.debug(`\tthumbnail: ${thumbnail}`);
-        logger.debug(`\tcolor: ${color}`);
         logger.debug(`\ttitle: ${title}`);
         logger.debug(`\tdescription: ${description}`);
+        logger.debug(`\tthumbnail: ${thumbnail}`);
         logger.debug(`\turl: ${latest_video.link}`);
         logger.debug(`\tfooter: ${footer}`);
         logger.debug(`\ttimestamp: ${timestamp}`);
+        logger.debug(`\tcolor: ${color}`);
         logger.debug(`\tauthor: ${author}`);
 
         const embed = new EmbedBuilder()
