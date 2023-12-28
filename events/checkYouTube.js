@@ -85,7 +85,7 @@ async function checkYouTube() {
         }
 
         const message = getYouTubeAnnouncement(latest_video, yt_data.title, yt_channel_icon);
-        let result = await channel.send(message)
+        return await channel.send(message)
             .catch(error => {
                 logger.error(`error while sending youtube announcement embed to #${channel.name} channel (${error})`);
                 return false;
@@ -93,17 +93,6 @@ async function checkYouTube() {
                 logger.debug(`sent youtube announcement embed to #${channel.name} channel\n\t${message}`);
                 return true;
             });
-        return result;
-        // if (!result) { return result; }
-
-        // return await channel.send({content: latest_video.link})
-        //     .catch(error => {
-        //         logger.error(`error while sending youtube announcement link to #${channel.name} channel (${error})`);
-        //         return false;
-        //     }).then(() => {
-        //         logger.debug(`sent youtube announcement link to #${channel.name} channel\n\t${message}`);
-        //         return true;
-        //     });
     }
 
     /**
