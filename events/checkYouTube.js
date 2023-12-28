@@ -1,5 +1,5 @@
-const parser_ = require('rss-parser');
-const parser = new parser_();
+const rss_parser = require('rss-parser');
+const parser = new rss_parser();
 const { config } = require('../config.json');
 const cron = require('cron');
 const { logger } = require('../utils/logger');
@@ -66,8 +66,8 @@ async function checkYouTube() {
 
     /**
      * 
-     * @param {{[key: string]: any;} & parser_.Output<{[key: string]: any;}>} yt_data 
-     * @param {{[key: string]: any;} & parser_.Item} latest_video 
+     * @param {{[key: string]: any;} & rss_parser.Output<{[key: string]: any;}>} yt_data 
+     * @param {{[key: string]: any;} & rss_parser.Item} latest_video 
      * @param {string} discord_channel_id 
      * @param {string} yt_channel_icon 
      * @returns 
@@ -107,7 +107,7 @@ async function checkYouTube() {
     }
 
     /**
-     * @param {{[key: string]: any;} & parser_.Item} latest_video 
+     * @param {{[key: string]: any;} & rss_parser.Item} latest_video 
      * @param {string} channel_name 
      * @param {string} channel_icon 
      * @returns 
@@ -148,7 +148,7 @@ async function checkYouTube() {
     /**
      * 
      * @param {{any: {videos: string[];};}[]} yt_json_data 
-     * @param {{[key: string]: any;} & parser_.Item} latest_video 
+     * @param {{[key: string]: any;} & rss_parser.Item} latest_video 
      * @param {string} yt_channel_id 
      */
     function addVideo(yt_json_data, latest_video, yt_channel_id) {
@@ -164,7 +164,7 @@ async function checkYouTube() {
     /**
      * 
      * @param {{any: {videos: string[];};}[]} yt_json_data 
-     * @param {{[key: string]: any;} & parser_.Output<{[key: string]: any;}>} yt_data 
+     * @param {{[key: string]: any;} & rss_parser.Output<{[key: string]: any;}>} yt_data 
      * @param {string} yt_channel_id 
      * @returns 
      */
