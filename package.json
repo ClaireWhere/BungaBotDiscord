@@ -1,7 +1,7 @@
 {
   "name": "bungabotdiscord",
   "version": "0.1.0",
-  "description": "",
+  "description": "A simple Discord bot for Twitch streamer AAAAurora_'s Discord server",
   "main": "index.js",
   "author": "ClaireWhere",
   "license": "MIT",
