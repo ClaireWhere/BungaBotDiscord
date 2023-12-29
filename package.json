@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "author": "ClaireWhere",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "keywords": [],
   "scripts": {
     "start": "node index.js",
