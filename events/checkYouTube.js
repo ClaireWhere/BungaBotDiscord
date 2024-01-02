@@ -79,7 +79,6 @@ async function checkYouTube() {
             return false;
         }
 
-        
         const channel = client.channels.cache.find(channel => channel.name === config.channels[discord_channel_id] && channel.guildId === process.env.GUILD_ID);
         
         if (!channel) {
