@@ -5,6 +5,7 @@ const cron = require('cron');
 const { logger } = require('../utils/logger');
 const fs = require('fs');
 const { EmbedBuilder } = require('@discordjs/builders');
+require('dotenv').config();
 
 let scheduledCheck;
 let client;
@@ -78,7 +79,9 @@ async function checkYouTube() {
             return false;
         }
 
-        const channel = client.channels.cache.find(channel => channel.name === config.channels[discord_channel_id]);
+        
+        const channel = client.channels.cache.find(channel => channel.name === config.channels[discord_channel_id] && channel.guildId === process.env.GUILD_ID);
+        
         if (!channel) {
             logger.debug(`youtube announcements channel not found, skipping announcement`)
             return false;
