@@ -108,5 +108,8 @@ function getClock() {
 function saveClock(clockData) {
     if (!clockData) { return; }
 
+    if (fs.existsSync(`${__dirname}/../data`)) {
+        fs.mkdirSync(`${__dirname}/../data`);
+    }
     fs.writeFileSync(`${__dirname}/../data/timeclock.json`, JSON.stringify(clockData, null, "\t"));
 }
