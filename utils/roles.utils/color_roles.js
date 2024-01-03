@@ -58,6 +58,10 @@ async function getGreatestRolePosition(interaction) {
             position = role.position+1;
         }
     });
+    if (position === 1) {
+        // if no administrator role with color was found, just use the bot role's position
+        position = maxPosition;
+    }
     return position;
 }
 
