@@ -188,7 +188,7 @@ async function checkYouTube() {
         logger.debug(`youtube data: ${JSON.stringify(yt_json_data)}`);
         
         if (!yt_json_data) {
-            logger.debug(`youtube data not found, creating it`);
+            logger.info(`youtube data not found, creating it`);
             yt_json_data = {yt_channel_id: {"videos": []}};
         }
 
