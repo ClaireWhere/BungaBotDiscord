@@ -49,7 +49,7 @@ async function cancelInteraction(interaction, message) {
  * @returns 
  */
 async function getGreatestRolePosition(interaction) {
-    let maxPosition = await getBotRolePosition(interaction)-1;
+    let maxPosition = await getBotRolePosition(interaction);
     let position = 1;
     
     // find the highest positioned role with the 'Administrator' permissions that also has a color
