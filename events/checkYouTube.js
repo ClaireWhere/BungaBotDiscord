@@ -144,7 +144,8 @@ async function checkYouTube() {
      */
     function addVideo(yt_json_data, latest_video, yt_channel_id) {
         yt_json_data[yt_channel_id]["videos"].push(latest_video.id);
-        if (fs.existsSync(`${__dirname}/../data`)) {
+        if (!fs.existsSync(`${__dirname}/../data`)) {
+            logger.debug(`youtube data directory not found, creating it`);
             fs.mkdirSync(`${__dirname}/../data`);
         }
         fs.writeFileSync(`${__dirname}/../data/youtube.json`, JSON.stringify(yt_json_data), (error) => {
