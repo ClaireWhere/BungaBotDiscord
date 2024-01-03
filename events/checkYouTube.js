@@ -153,7 +153,7 @@ async function checkYouTube() {
                 logger.error(`error while writing youtube data to file (${error})`);
             }
         });
-        logger.debug(`saved video ${latest_video.title} (${latest_video.link}) to youtube data`);
+        logger.info(`saved video ${latest_video.title} (${latest_video.link}) to youtube data`);
     }
 
     /**
