@@ -17,7 +17,7 @@ async function colorHandler(interaction, id) {
 
     const member_role = (await interaction.member.roles.cache.find(role => role.name.endsWith(`'s Color`)));
 
-    if (member_role === undefined) {        
+    if (member_role === undefined) {
         await interaction.guild.roles.create( {name: role_name, color: hex, permissions: [], position: await getGreatestRolePosition(interaction)} )
             .then(async role => {
                     await interaction.member.roles.add(role);
