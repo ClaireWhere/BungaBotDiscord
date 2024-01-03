@@ -232,7 +232,7 @@ function getPermissionsFromArray(array) {
 async function getBotRolePosition(interaction) {
     const botMember = await interaction.guild.members.fetch(interaction.client.user.id);
     const botRole = botMember.user.displayName;
-    return interaction.guild.roles.cache.find( role => role.name === botRole && botMember.roles.cache.has(role.id) ).position-1;
+    return interaction.guild.roles.cache.find( role => role.name === botRole && botMember.roles.cache.has(role.id) ).position;
 }
 
 module.exports = { removeExclusive, memberHasRoleName, memberHasRole, addRole, addRoleByName, addFormatRole, removeRole, removeRoleByName, removeFormatRole, toggleRole, findRole, getPermissionsFromArray, getBotRolePosition };
