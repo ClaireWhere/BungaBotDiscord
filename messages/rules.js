@@ -12,6 +12,7 @@ module.exports = {
             .setAuthor({ name: 'Bunga Bot', iconURL: config.images.bunga_bot_icon })
             .setThumbnail(config.images.rules_thmb);
 
+        const roles_channel_name = config.channels.roles_channel_name;
         const art_channel_name = config.channels.art_channel_name;
         const spam_channel_name = config.channels.spam_channel_name;
         const nsfw_channel_name = config.channels.nsfw_channel_name;
@@ -25,6 +26,7 @@ module.exports = {
         const wall_of_shame = notExists ? `\`#${wall_of_shame_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === wall_of_shame_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${wall_of_shame_channel_name}\``;
         const hall_of_fame = notExists ? `\`#${hall_of_fame_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === hall_of_fame_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${hall_of_fame_channel_name}\``;
         const self_promo = notExists ? `\`#${self_promo_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === self_promo_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${self_promo_channel_name}\``;
+        const roles = notExists ? `\`#${roles_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === roles_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${roles_channel_name}\``;
         const aurora = interaction.guild.members.cache.find(member => member.id === config.users.aurora) ?? `\`@AAAAurora_\``;
 
         const embed_2 = new EmbedBuilder()
@@ -78,7 +80,7 @@ module.exports = {
                 },
                 {
                     "name": "\u200B",
-                    "value": `5️⃣ All events will be held in event-specific channels, and overseen by our event mods.`
+                    "value": `5️⃣ If you would like a role for your pronouns that is not listed in ${roles}, please send a DM to ${aurora} and we'll get it set up for you :3`
                 },
                 {
                     "name": "\u200B",
@@ -103,7 +105,6 @@ module.exports = {
                     "name": "\u200B",
                     "value": `🔟 Rules are subject to change as ${aurora} and the Mod Team see fit.`
                 }
-                
             )
             .setTimestamp()
             .setFooter({ text: `Posted on`, iconURL: config.images.bunga_bot_icon });
