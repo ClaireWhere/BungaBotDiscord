@@ -19,14 +19,14 @@ module.exports = {
         const wall_of_shame_channel_name = config.channels.wall_of_shame_channel_name;
         const hall_of_fame_channel_name = config.channels.hall_of_fame_channel_name;
         const self_promo_channel_name = config.channels.self_promo_channel_name;
-        const notExists = false;
-        const art = notExists ? `\`#${art_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === art_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${art_channel_name}\``;
-        const spam = notExists ? `\`#${spam_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === spam_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${spam_channel_name}\``;
-        const nsfw = notExists ? `\`#${nsfw_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === nsfw_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${nsfw_channel_name}\``;
-        const wall_of_shame = notExists ? `\`#${wall_of_shame_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === wall_of_shame_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${wall_of_shame_channel_name}\``;
-        const hall_of_fame = notExists ? `\`#${hall_of_fame_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === hall_of_fame_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${hall_of_fame_channel_name}\``;
-        const self_promo = notExists ? `\`#${self_promo_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === self_promo_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${self_promo_channel_name}\``;
-        const roles = notExists ? `\`#${roles_channel_name}\`` : interaction.guild.channels.cache.find(channel => channel.name === roles_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${roles_channel_name}\``;
+
+        const roles = interaction.guild.channels.cache.find(channel => channel.name === roles_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${roles_channel_name}\``;
+        const art = interaction.guild.channels.cache.find(channel => channel.name === art_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${art_channel_name}\``;
+        const spam = interaction.guild.channels.cache.find(channel => channel.name === spam_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${spam_channel_name}\``;
+        const nsfw = interaction.guild.channels.cache.find(channel => channel.name === nsfw_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${nsfw_channel_name}\``;
+        const wall_of_shame = interaction.guild.channels.cache.find(channel => channel.name === wall_of_shame_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${wall_of_shame_channel_name}\``;
+        const hall_of_fame = interaction.guild.channels.cache.find(channel => channel.name === hall_of_fame_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${hall_of_fame_channel_name}\``;
+        const self_promo = interaction.guild.channels.cache.find(channel => channel.name === self_promo_channel_name && !getChannelParentName(channel).includes('archive')) ?? `\`#${self_promo_channel_name}\``;
         const aurora = interaction.guild.members.cache.find(member => member.id === config.users.aurora) ?? `\`@AAAAurora_\``;
 
         const embed_2 = new EmbedBuilder()
