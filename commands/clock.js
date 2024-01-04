@@ -11,7 +11,7 @@ module.exports = {
 		.setDMPermission(true)
         .addSubcommand(subcommand =>
             subcommand.setName('in')
-            .setDescription('clock in for work 😔')
+            .setDescription('clock in for work 😎')
             .addBooleanOption(option =>
                 option.setName('silent')
                 .setDescription('sends the clock message silently')
@@ -20,7 +20,7 @@ module.exports = {
         )
         .addSubcommand(subcommand =>
             subcommand.setName('out')
-            .setDescription('clock out of work and get back to your miserable life')
+            .setDescription('clock out of work 😔')
             .addBooleanOption(option =>
                 option.setName('silent')
                 .setDescription('sends the clock message silently')
@@ -77,9 +77,9 @@ async function handleClockIn(interaction) {
     let message = '';
 
     if (!clockedIn) {
-        message += `❌ ${interaction.user} you're already clocked in dummy!!`;
+        message += `❌ WHOA THERE ${interaction.user} you're already clocked in!!`;
     } else {
-        message += `🟢 ${interaction.user} has clocked in. Have fun at work.`;
+        message += `🟢 ${interaction.user} has clocked in. Woohooo!!! Have a great day!!!`;
     }
 
     const embed = new EmbedBuilder()
@@ -106,9 +106,9 @@ async function handleClockOut(interaction) {
 
     let message = '';
     if (clockedOut.sessionTime === -1) {
-        message += `❌ ${interaction.user} you haven't clocked in yet idiot.`;
+        message += `❌ Hold your horses ${interaction.user} you haven't clocked in!`;
     } else {
-        message += `🔴 ${interaction.user} has clocked out after ${strSessionTime}. Get back to living your sad live`;
+        message += `🔴 ${interaction.user} has clocked out after ${strSessionTime}. COME BACK PLSSSSSS 😭😭😭`;
     }
 
     const embed = new EmbedBuilder()
