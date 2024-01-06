@@ -1,9 +1,8 @@
 {
     "config": {
-        "custom_status": {
+        "custom_presence": {
             "enabled": true,
             "state": "Bunga Blasting since 2023",
-            "name": "Set your name color with /color",
             "status": "online"
         },
         "youtube": {

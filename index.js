@@ -8,16 +8,43 @@ logger.info(`Starting client...`);
 
 // Set Presence
 function getPresence() {
-    if (config.hasOwnProperty('custom_status')) {
-        if (config.custom_status.hasOwnProperty('enabled') && config.custom_status.hasOwnProperty('state')) {
-            return config.custom_status.enabled ? {activities: [{name: config.custom_status.name ?? '', type: ActivityType.Custom, state: config.custom_status.state}], state: config.custom_status.state} : {}
+    if (config.hasOwnProperty('custom_presence')) {
+        if (!config.custom_presence.hasOwnProperty('enabled')) {
+            logger.warn(`custom_presence.enabled is not defined in config.json. Defaulting to no presence`);
+            return {};
+        } else if (!config.custom_presence.enabled) {
+            logger.debug(`custom_presence.enabled is false. Setting no presence`);
+            return {};
         }
+        const valid_statuses = ['online', 'idle', 'dnd', 'offline'];
+        let status = valid_statuses[0];
+        if (config.custom_presence.hasOwnProperty('status')) {
+            if (valid_statuses.includes(config.custom_presence.status)) {
+                status = config.custom_presence.status;
+            } else {
+                logger.warn(`custom_presence.status (\"${config.custom_presence.status}\") is not a valid status. Defaulting to \"${status}\"`);
+            }
+        } else {
+            logger.warn(`custom_presence.status is not defined in config.json. Defaulting to \"${status}\"`);
+        }
+
+        return {
+            activities: [
+                {
+                    type: ActivityType.Custom,
+                    state: config.custom_presence.state ?? '',
+                    name: ''
+                }
+            ],
+            status: status
+        }
+
     }
     return undefined;
 }
 const presence = getPresence();
 if (presence) {
-    logger.debug(`Custom status is enabled: ${presence.activities[0].state}`);
+    logger.debug(`Custom status is enabled\n\t${JSON.stringify(presence)}`);
 } else {
     logger.debug(`Custom status is disabled`);
 }
