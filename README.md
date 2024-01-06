@@ -29,13 +29,7 @@ your current clock status, or display the clock times of all users
     git clone https://github.com/ClaireWhere/BungaBotDiscord.git
     ```
 
-2. Install NPM packages
-
-    ```sh
-    npm install
-    ```
-
-3. Create a `.env` file in the root directory of the project and add the following:
+2. Create a `.env` file in the root directory of the project and add the following:
 
     ```env
     CLIENT_ID=
@@ -47,7 +41,7 @@ your current clock status, or display the clock times of all users
     - `GUILD_ID` is the ID of the guild the bot will be used in
     - `DISCORD_TOKEN` is the token of the bot application
 
-4. Setup `config.json` to your configuration
+3. Setup `config.json` to your configuration
 
     See [example.config.json](example.config.json) for an example configuration.
 
@@ -154,6 +148,13 @@ your current clock status, or display the clock times of all users
 
 ### Run without Docker
 
+1. Install NPM packages
+
+    ```sh
+    npm install
+    ```
+
+2. Start the bot
 
     ```sh
     npm start
