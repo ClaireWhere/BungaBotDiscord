@@ -44,7 +44,7 @@ function getPresence() {
 }
 const presence = getPresence();
 if (presence) {
-    logger.debug(`Custom status is enabled: ${presence.activities[0].state}`);
+    logger.debug(`Custom status is enabled\n\t${JSON.stringify(presence)}`);
 } else {
     logger.debug(`Custom status is disabled`);
 }
