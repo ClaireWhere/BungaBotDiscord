@@ -12,6 +12,7 @@ A simple Discord bot for Twitch streamer AAAAurora_'s Discord server.
 - [x] Track clock in and clock out times for users
 - [x] `/clock {in|out|view|display} [True|False]` - Clock in, clock out, view
 your current clock status, or display the clock times of all users
+- [x] Docker support
 
 ## Setup
 
@@ -129,7 +130,30 @@ your current clock status, or display the clock times of all users
             - `intensity` - The intensity of the color
             - `hex` - The hex code of the color
 
-5. Run the bot
+## Run the bot
+
+### Run with Docker
+
+1. Navigate to the project directory
+
+    ```sh
+    cd BungaBotDiscord
+    ```
+
+2. Build the Docker image
+
+    ```sh
+    sudo docker build -t bungabotdiscord .
+    ```
+
+3. Run the Docker image
+
+    ```sh
+    sudo docker run -d --name bungabotdiscord bungabotdiscord
+    ```
+
+### Run without Docker
+
 
     ```sh
     npm start
