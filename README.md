@@ -16,6 +16,15 @@ your current clock status, or display the clock times of all users
 
 ## Setup
 
+### Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Run The Bot](#run-the-bot)
+- [Run with Docker](#run-with-docker)
+- [Usage](#usage)
+  - [Commands](#commands)
+
 ### Prerequisites
 
 - [node.js](https://nodejs.org/en/) (v20.10.0 or higher)
