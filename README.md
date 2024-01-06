@@ -54,6 +54,8 @@ your current clock status, or display the clock times of all users
 
     See [example.config.json](example.config.json) for an example configuration.
 
+    All properties are setup inside the root `config` object.
+
     ```json
     {
         "config": {
@@ -61,6 +63,8 @@ your current clock status, or display the clock times of all users
         }
     }
     ```
+
+    The following properties are available:
 
     - `custom_presence` - Custom presence configuration
         - `enabled` (`true`|`false`) - Whether the custom status is enabled.
