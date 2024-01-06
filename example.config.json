@@ -1,0 +1,61 @@
+{
+    "config": {
+        "custom_presence": {
+            "enabled": true,
+            "state": "Hello World!",
+            "status": "online"
+        },
+        "youtube": {
+            "enabled": true,
+            "channels": [
+                {
+                    "yt_channel_id": "",
+                    "discord_channel_id": "",
+                    "channel_icon": ""
+                }
+            ]
+        },
+        "images": {
+            "image_id": "image_url"
+        },
+        "channels": {
+            "channel_id": "discord_channel_name"
+        },
+        "users": {
+            "user_id": "discord_user_id"
+        },
+        "roles": {
+            "role_id": {
+                "id": "role_id",
+                "name": "discord_role_name",
+                "color": "hex_color_code",
+                "exclusion": [
+                    "role_id"
+                ]
+            }
+        },
+        "colors": {
+            "multi_color_id": [
+                {
+                    "hex": "0x123456"
+                },
+                {
+                    "hex": "0x654321"
+                }
+            ],
+            "single_color_id": {
+                "hex": "0x222222",
+                "darken": [
+                    {
+                        "intensity": 1, "hex": "0x111111"
+                    }
+                ],
+                "lighten": [
+                    {
+                        "intensity": 1, "hex": "0x333333"
+                    }
+                ]
+            }
+        }
+    }
+}
