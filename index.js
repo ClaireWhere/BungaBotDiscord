@@ -8,31 +8,31 @@ logger.info(`Starting client...`);
 
 // Set Presence
 function getPresence() {
-    if (config.hasOwnProperty('custom_status')) {
-        if (!config.custom_status.hasOwnProperty('enabled')) {
-            logger.warn(`custom_status.enabled is not defined in config.json. Defaulting to no presence`);
+    if (config.hasOwnProperty('custom_presence')) {
+        if (!config.custom_presence.hasOwnProperty('enabled')) {
+            logger.warn(`custom_presence.enabled is not defined in config.json. Defaulting to no presence`);
             return {};
-        } else if (!config.custom_status.enabled) {
-            logger.debug(`custom_status.enabled is false. Setting no presence`);
+        } else if (!config.custom_presence.enabled) {
+            logger.debug(`custom_presence.enabled is false. Setting no presence`);
             return {};
         }
         const valid_statuses = ['online', 'idle', 'dnd', 'offline'];
         let status = valid_statuses[0];
-        if (config.custom_status.hasOwnProperty('status')) {
-            if (valid_statuses.includes(config.custom_status.status)) {
-                status = config.custom_status.status;
+        if (config.custom_presence.hasOwnProperty('status')) {
+            if (valid_statuses.includes(config.custom_presence.status)) {
+                status = config.custom_presence.status;
             } else {
-                logger.warn(`custom_status.status (\"${config.custom_status.status}\") is not a valid status. Defaulting to \"${status}\"`);
+                logger.warn(`custom_presence.status (\"${config.custom_presence.status}\") is not a valid status. Defaulting to \"${status}\"`);
             }
         } else {
-            logger.warn(`custom_status.status is not defined in config.json. Defaulting to \"${status}\"`);
+            logger.warn(`custom_presence.status is not defined in config.json. Defaulting to \"${status}\"`);
         }
 
         return {
             activities: [
                 {
                     type: ActivityType.Custom,
-                    state: config.custom_status.state ?? '',
+                    state: config.custom_presence.state ?? '',
                     name: ''
                 }
             ],

@@ -1,6 +1,6 @@
 {
     "config": {
-        "custom_status": {
+        "custom_presence": {
             "enabled": true,
             "state": "Bunga Blasting since 2023",
             "status": "online"
